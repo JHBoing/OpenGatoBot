@@ -16,7 +16,7 @@ load_dotenv()
 
 COMMANDS = [
     "PS",
-    "GAT"
+    "GAT",
     "G4T",
     "MIAU",
     "MEOW",
@@ -40,7 +40,7 @@ ANSWERS = [
 
 
 def respond(update: Update, context: CallbackContext) -> None:
-    """If the message is in commands list, reply with and answer from answers array."""
+    """If the message is in commands list, reply with an answer from answers array."""
     user_message = update.message.text.upper()
     for word in COMMANDS:
         if word in user_message:
