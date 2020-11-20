@@ -42,8 +42,11 @@ ANSWERS = [
 def respond(update: Update, context: CallbackContext) -> None:
     """If the message is in commands list, reply with an answer from answers array."""
     user_message = update.message.text.upper()
-    for word in COMMANDS:
-        if word in user_message:
+    user_message = user_message.split(' ')
+    for word in user_message:
+        if word.startswith('HTTPS'):
+            continue
+        if any(command in word for command in COMMANDS):
             update.message.reply_text(ANSWERS[random.randrange(0, len(ANSWERS))])
             break
 
